@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>porschiey&#39;s dev.blog</title>
-    <link>https://porschiey-alt.github.io/</link>
+    <link>https://dev.porschiey.io/</link>
     <description>Recent content on porschiey&#39;s dev.blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Oct 2025 08:22:27 -0600</lastBuildDate>
-    <atom:link href="https://porschiey-alt.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dev.porschiey.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building a world that never sleeps</title>
-      <link>https://porschiey-alt.github.io/posts/building-world-never-sleeps/</link>
+      <link>https://dev.porschiey.io/posts/building-world-never-sleeps/</link>
       <pubDate>Sat, 11 Oct 2025 08:22:27 -0600</pubDate>
-      <guid>https://porschiey-alt.github.io/posts/building-world-never-sleeps/</guid>
+      <guid>https://dev.porschiey.io/posts/building-world-never-sleeps/</guid>
       <description>&lt;p&gt;&lt;del&gt;Keep it simple for your first game&lt;/del&gt;. For quite some time I&amp;rsquo;ve been pondering a new multiplayer server technology and netcode architecture. After spending 15+ years in the gaming industry I know this is no small task - there&amp;rsquo;s a graveyard of game studios and aspirational game devs alike who have tried and failed to write good netcode. In fact, I was at a &lt;a href=&#34;https://starform.co&#34;&gt;startup&lt;/a&gt; that was plagued with network issues that they spent loads of money and manpower (myself included) to figure it out.&lt;/p&gt;</description>
     </item>
   </channel>

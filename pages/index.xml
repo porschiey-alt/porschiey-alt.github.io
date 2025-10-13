@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on porschiey&#39;s dev.blog</title>
+    <link>https://dev.porschiey.io/pages/</link>
+    <description>Recent content in Pages on porschiey&#39;s dev.blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 Oct 2025 08:26:00 -0600</lastBuildDate>
+    <atom:link href="https://dev.porschiey.io/pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>about:porschiey</title>
+      <link>https://dev.porschiey.io/pages/about/</link>
+      <pubDate>Mon, 13 Oct 2025 08:26:00 -0600</pubDate>
+      <guid>https://dev.porschiey.io/pages/about/</guid>
+      <description>&lt;p&gt;Hello! My name is Brandon (alias: Porschiey). I am the sole developer for the game called &amp;ldquo;Parchment,&amp;rdquo; which is an indie 4X game for PC and mobile, slotted for Holiday 2026.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Parchment&lt;/strong&gt; is a stylized empire / civilization game that takes place on a persistent world (called a &amp;ldquo;realm&amp;rdquo;). Each realm is procedurally generated and &amp;ldquo;drawn onto a fantasy world map&amp;rdquo;, seeded by the players that join it. It is a living breathing world with real players and AI alike.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

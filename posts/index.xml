@@ -5,7 +5,7 @@
         <description>Recent content in Posts on porschiey&#39;s dev.blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sat, 11 Oct 2025 08:22:27 -0600</lastBuildDate>
+        <lastBuildDate>Sun, 19 Oct 2025 18:19:18 -0600</lastBuildDate>
         <atom:link href="https://dev.porschiey.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
@@ -37,7 +37,7 @@
 <li>The primary &ldquo;update loop&rdquo; is automatically multi-threaded across several servers and doesn&rsquo;t have to be concerned with large compute or physics tasks like pathfinding or terrain generation.</li>
 </ol>
 <h3 id="multiplayer-games-are-classicly-very-chatty">multiplayer games are classicly very &ldquo;chatty&rdquo;</h3>
-<p>The standard issue multiplayer dedicated server is noisy and busy. <em>Every single frame of the simulation</em> the server is sending updates about the game (typically game state or partial state updates) to every connected player. At a 20FPS simulation with 10 connected clients sending input, the server is sending/receiving 2,000 events over the network per second. Granted, this is a mediocre design scenario, many modern designs are better than this - but even the best ones are transmitting hundreds of updates per second for only ten players.</p>
+<p>The standard issue multiplayer dedicated server is noisy and busy. <em>Every single frame of the simulation</em> the server is sending updates about the game (typically game state or partial state updates) to every connected player. At a 20FPS simulation with 10 connected clients sending input, the server is sending/receiving hundreds (often thousands) of events over the network per second. Granted, this is a mediocre design scenario, many modern designs are better than this - but even the best ones are transmitting hundreds of updates per second for only ten players.</p>
 <p>Rather than flooding the network with constant position updates like a shooter, Parchment communicates in orders, not transforms. For example, the client sends a “move to” command; the server validates, computes a path, and sends back waypoints. The client then interpolates locally and reconciles occasionally.</p>
 <p>Bandwidth is tight and tidy. A single move command takes a fraction of what it would in a typical multiplayer persistent world server. World of Warcraft, for example, clocks in at 21KB/s per player average according to this <a href="https://lucris.lub.lu.se/ws/portalfiles/portal/5535189/2027067.pdf">academic source</a> (and that&rsquo;s fairly low). <em>Parchment will hopefully sit between 0.5KB/s or 1.5KB/s.</em></p>
 <p>This opens up so many exciting possibilities:</p>

@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dev.porschiey.io/</loc>
+    <lastmod>2025-10-19T18:19:18-06:00</lastmod>
+  </url><url>
+    <loc>https://dev.porschiey.io/posts/</loc>
+    <lastmod>2025-10-19T18:19:18-06:00</lastmod>
+  </url><url>
+    <loc>https://dev.porschiey.io/pages/about/</loc>
+    <lastmod>2025-10-13T08:26:00-06:00</lastmod>
+  </url><url>
+    <loc>https://dev.porschiey.io/pages/</loc>
+    <lastmod>2025-10-13T08:26:00-06:00</lastmod>
+  </url><url>
     <loc>https://dev.porschiey.io/posts/building-world-never-sleeps/</loc>
     <lastmod>2025-10-11T08:22:27-06:00</lastmod>
   </url><url>
@@ -11,10 +23,7 @@
     <loc>https://dev.porschiey.io/tags/parchment/</loc>
     <lastmod>2025-10-11T08:22:27-06:00</lastmod>
   </url><url>
-    <loc>https://dev.porschiey.io/</loc>
-    <lastmod>2025-10-11T08:22:27-06:00</lastmod>
-  </url><url>
-    <loc>https://dev.porschiey.io/posts/</loc>
+    <loc>https://dev.porschiey.io/tags/servers/</loc>
     <lastmod>2025-10-11T08:22:27-06:00</lastmod>
   </url><url>
     <loc>https://dev.porschiey.io/tags/</loc>

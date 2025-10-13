@@ -8,7 +8,7 @@
 <meta name="author" content="">
 <meta name="description" content="Keep it simple for your first game. For quite some time I&rsquo;ve been pondering a new multiplayer server technology and netcode architecture. After spending 15&#43; years in the gaming industry I know this is no small task - there&rsquo;s a graveyard of game studios and aspirational game devs alike who have tried and failed to write good netcode. In fact, I was at a startup that was plagued with network issues that they spent loads of money and manpower (myself included) to figure it out.
 " />
-<meta name="keywords" content=", devblog, parchment" />
+<meta name="keywords" content=", devblog, parchment, servers" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="https://dev.porschiey.io/posts/building-world-never-sleeps/" />
@@ -44,8 +44,8 @@
   <meta itemprop="description" content="Keep it simple for your first game. For quite some time I’ve been pondering a new multiplayer server technology and netcode architecture. After spending 15&#43; years in the gaming industry I know this is no small task - there’s a graveyard of game studios and aspirational game devs alike who have tried and failed to write good netcode. In fact, I was at a startup that was plagued with network issues that they spent loads of money and manpower (myself included) to figure it out.">
   <meta itemprop="datePublished" content="2025-10-11T08:22:27-06:00">
   <meta itemprop="dateModified" content="2025-10-11T08:22:27-06:00">
-  <meta itemprop="wordCount" content="1099">
-  <meta itemprop="keywords" content="Devblog,Parchment">
+  <meta itemprop="wordCount" content="1102">
+  <meta itemprop="keywords" content="Devblog,Parchment,Servers">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Building a world that never sleeps">
@@ -97,7 +97,7 @@
 
         <span class="header__right">
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="/posts">Posts</a></li>
+    <ul class="menu__inner"><li><a href="/pages/about">About</a></li><li><a href="/posts">Posts</a></li>
     </ul>
 </nav>
 
@@ -162,7 +162,7 @@
 <li>The primary &ldquo;update loop&rdquo; is automatically multi-threaded across several servers and doesn&rsquo;t have to be concerned with large compute or physics tasks like pathfinding or terrain generation.</li>
 </ol>
 <h3 id="multiplayer-games-are-classicly-very-chatty">multiplayer games are classicly very &ldquo;chatty&rdquo;</h3>
-<p>The standard issue multiplayer dedicated server is noisy and busy. <em>Every single frame of the simulation</em> the server is sending updates about the game (typically game state or partial state updates) to every connected player. At a 20FPS simulation with 10 connected clients sending input, the server is sending/receiving 2,000 events over the network per second. Granted, this is a mediocre design scenario, many modern designs are better than this - but even the best ones are transmitting hundreds of updates per second for only ten players.</p>
+<p>The standard issue multiplayer dedicated server is noisy and busy. <em>Every single frame of the simulation</em> the server is sending updates about the game (typically game state or partial state updates) to every connected player. At a 20FPS simulation with 10 connected clients sending input, the server is sending/receiving hundreds (often thousands) of events over the network per second. Granted, this is a mediocre design scenario, many modern designs are better than this - but even the best ones are transmitting hundreds of updates per second for only ten players.</p>
 <p>Rather than flooding the network with constant position updates like a shooter, Parchment communicates in orders, not transforms. For example, the client sends a “move to” command; the server validates, computes a path, and sends back waypoints. The client then interpolates locally and reconciles occasionally.</p>
 <p>Bandwidth is tight and tidy. A single move command takes a fraction of what it would in a typical multiplayer persistent world server. World of Warcraft, for example, clocks in at 21KB/s per player average according to this <a href="https://lucris.lub.lu.se/ws/portalfiles/portal/5535189/2027067.pdf">academic source</a> (and that&rsquo;s fairly low). <em>Parchment will hopefully sit between 0.5KB/s or 1.5KB/s.</em></p>
 <p>This opens up so many exciting possibilities:</p>
@@ -191,6 +191,7 @@
 
         <span class="tag"><a href="https://dev.porschiey.io/tags/devblog/">devblog</a></span>
         <span class="tag"><a href="https://dev.porschiey.io/tags/parchment/">parchment</a></span>
+        <span class="tag"><a href="https://dev.porschiey.io/tags/servers/">servers</a></span>
         
     </p>
 
@@ -204,7 +205,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1099 Words
+        1102 Words
       </p>
 
       <p>

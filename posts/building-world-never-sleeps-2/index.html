@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="We last left off in part 1 talking about how chatty multiplayer dedicated servers can be, and how we&rsquo;ve got this &ldquo;hive&rdquo; system that powers and scales out the realms without being so chatty. But we never got to the no-sleep part, did we?
+When you log into Parchment, if you didn&rsquo;t already have one, a worker bee spawns just for you. This &ldquo;actor,&rdquo; we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you&rsquo;re not around.
+" />
+<meta name="keywords" content=", parchment, devblog, servers" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/building-world-never-sleeps-2/" />
+
+
+    <title>
+        
+            Building a world that never sleeps (part 2) :: porschiey&#39;s dev.blog 
+        
+    </title>
+
+
+
+
+
+  <link rel="stylesheet" href="/main.min.2729760c629597024c5de34b40ea9f372f2b5a2a192dcdca537b7ddfa483eab8.css" integrity="sha256-Jyl2DGKVlwJMXeNLQOqfNy8rWioZLc3KU3t936SD6rg=" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Building a world that never sleeps (part 2)">
+  <meta itemprop="description" content="We last left off in part 1 talking about how chatty multiplayer dedicated servers can be, and how we’ve got this “hive” system that powers and scales out the realms without being so chatty. But we never got to the no-sleep part, did we?
+When you log into Parchment, if you didn’t already have one, a worker bee spawns just for you. This “actor,” we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you’re not around.">
+  <meta itemprop="datePublished" content="2025-10-19T18:19:18-06:00">
+  <meta itemprop="dateModified" content="2025-10-19T18:19:18-06:00">
+  <meta itemprop="wordCount" content="1100">
+  <meta itemprop="keywords" content="Parchment,Devblog,Servers">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a world that never sleeps (part 2)">
+  <meta name="twitter:description" content="We last left off in part 1 talking about how chatty multiplayer dedicated servers can be, and how we’ve got this “hive” system that powers and scales out the realms without being so chatty. But we never got to the no-sleep part, did we?
+When you log into Parchment, if you didn’t already have one, a worker bee spawns just for you. This “actor,” we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you’re not around.">
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2025-10-19 18:19:18 -0600 MDT" />
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text ">
+                porschiey</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00ff00;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/pages/about">About</a></li><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://localhost:1313/posts/building-world-never-sleeps-2/">Building a world that never sleeps (part 2)</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <p>We last left off in <a href="/posts/building-world-never-sleeps/">part 1</a> talking about how chatty multiplayer dedicated servers can be, and how we&rsquo;ve got this &ldquo;hive&rdquo; system that powers and scales out the realms without being so chatty. But we never got to the no-sleep part, did we?</p>
+<p>When you log into Parchment, if you didn&rsquo;t already have one, a worker bee spawns just for you. This &ldquo;actor,&rdquo; we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you&rsquo;re not around.</p>
+<h3 id="persistent-worlds">Persistent worlds</h3>
+<p>Because your actor hangs out after you&rsquo;re gone, your civilization can continue to grow, defend, and make automatic choices as well. It sends its authoritative choices to the queen bee and the world keeps moving on while you sleep. If you have resources that you&rsquo;re gathering, they continue to gather. If you have technologies you&rsquo;re researching, they continue to research. Your own actor keeps time and executes these actions because it has it&rsquo;s own &ldquo;update loop.&rdquo;</p>
+<p>This actor/player bee has it&rsquo;s own internal &ldquo;update loop&rdquo; that I am calling the &ldquo;economy tick.&rdquo; The tick runs at between 0.25hz and 2hz (Once every 4 seconds to twice a second), depending on the need and priority. This tick purposely competes with user input and does not interleave. <em>This means each tick of the economy loop per player is treated like a player input, which in turn means everything is processed in order as it should be.</em></p>
+<h3 id="okay-yes-they-sometimes-nap">Okay, yes, they sometimes nap</h3>
+<p>On occassion, realms may find that there is very little to do. This can happen when a player hasn&rsquo;t given much input recently, signed in for some time, and/or hasn&rsquo;t had their civilization interacted with by others in some time. <em>To save on server capacity, we &ldquo;park&rdquo; those inactive actors/bees until they are needed again.</em> When they reactivate, we fast-forward them to present day. This includes marking any resources as harvested (and adding them to the player&rsquo;s currency), as well as things like marking their technology researches complete. Ultimately these are all planned to be just math, so it shouldn&rsquo;t be compute heavy and fairly easy. But if needed, we can always burst some compute for the catch up.</p>
+<h3 id="resiliency-and-beta-realms">Resiliency and beta-realms</h3>
+<p>When a realm begins, it locks in several things:</p>
+<ul>
+<li>The randomization seeds for proceedural generation</li>
+<li>The technology trees</li>
+<li>The realm start and end time (realms are designed to last for a &ldquo;season&rdquo;)</li>
+</ul>
+<p>This means that we can effectively have each realm be it&rsquo;s own flavorful and unique experience. <em>There might be a realm that&rsquo;s more prone to oceans, one that limits technology, or even one that introduces a new technology as a &ldquo;beta realm.&rdquo;</em> Giving players the choice to further flavor their experience each time they play is something I&rsquo;ve baked into the server tech.</p>
+<p>Because these configurations are baked into each realm at creation time but all use the same code framework to empower them, I can continiously upgrade the game on both the server and game.exe on players machines without needing everyone to be on the same version. The system is inheritly backwards compatiable, by design and from the start. Realms themselves can act as feature flags. This resiliency allows players to enjoy their &ldquo;playthrough&rdquo; without fear of design patches.</p>
+<p>Bug patches, if needed, can be applied to realms however as well. The configuration data they&rsquo;ve snapshotted can always be altered if what is within is causing a bug. In addition to this abstract resiliency, there&rsquo;s obviously concrete ones as well. Every so often your actor and the realm&rsquo;s actor (queen bee) perform a snapshot and backup everything in case we need to restore to specific point in time. These backups are kept in a rolling window. The max size over time for a single realm becomes deterministic.</p>
+<h3 id="scaling-in-three-dimensions">Scaling in three dimensions</h3>
+<p>In the server-side industry, there&rsquo;s typically three kinds of ways to handle high volume:</p>
+<ol>
+<li>Scaling Up - Giving servers more power, more muscle. More memory, more vCPUs, etc.</li>
+<li>Scaling Out - Adding more servers. The box we carry weighs less the more of us that carry it.</li>
+<li>Writing Performant Software - How your code perfoms during unfathomable scale, how it protects itself, and how much it understands what you&rsquo;ve done for option 2 (multiple regions, shards, and so on.)</li>
+</ol>
+<p>Options 1 and 2 can be boiled down to a single option if you&rsquo;d like: &ldquo;Buying away the problem.&rdquo; Throw more money at it, it goes away - more servers and/or better ones. But unless you&rsquo;ve coded for having multiple servers to carry the same load, option 2 can be a nightmare. Most dedicated host game servers are stateful and self contained for this reason. They live on a single VM or piece of hardware, and they service one simulation at a time. If you have more players and more demand, you simply add more dedicated servers that can host a 5x5 player match. MMOs don&rsquo;t have that exact luxury and most be more intentional about executing option 2 by executing option 3 at the same time. They create shards and instances of responsibility, split up the work. You might be connected to a different game server if you&rsquo;re in different continent in the game.</p>
+<p>Parchment&rsquo;s server design takes that even further. We split up the work down to each individual player, and spread it across the entire fleet of servers. Our &ldquo;dedicated server&rdquo; is not a single executable we throw onto a host VM that dies when a simulation ends. Our dedicated server is a series of logical and virtual nodes that exist across the entire fleet of cloud machines. Your realm might be ticking away in California while your worker bee/actor is ticking away in Texas and your rival is ticking away in Virginia. Queue the movie-esque globe network topology with nodes below.</p>
+<p><img src="/images/worldNodes.png" alt=""></p>
+<blockquote>
+<p><em>Imagine if those nodes weren&rsquo;t dedicated servers&hellip; but instead&hellip; that entire picture is the dedicated server.</em></p></blockquote>
+<p>Because the code is also written with high performance in mind (reduced backpressure, bulkhead partitioning, virtual circuit breakers, enforced timeouts, exponential backoff retry policies, negative caching, etc&hellip;) we can safely scale our fleet of servers with how busy the server is and everything else automatically expands. With less network I/O, we can host more realms on one &ldquo;box&rdquo; or machine, and therefore more players on that machine.</p>
+<h3 id="okbye">okbye</h3>
+<p>There&rsquo;s a lot of items I didn&rsquo;t cover - including gotchas and pitfalls for this approach, but for now that will conclude talking about the network/server design. Perhaps all of it could have been summarized into: &ldquo;My dedicated server is a hipster,&rdquo; or something. Oh well. ¯_(ツ)_/¯</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/tags/parchment/">parchment</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/devblog/">devblog</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/servers/">servers</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1100 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2025-10-19 18:19
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/posts/building-world-never-sleeps/">
+                    <span class="button__text">Building a world that never sleeps</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+
+
+    </body>
+</html>

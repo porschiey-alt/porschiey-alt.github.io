@@ -46,7 +46,7 @@ When you log into Parchment, if you didn&rsquo;t already have one, a worker bee 
 When you log into Parchment, if you didn’t already have one, a worker bee spawns just for you. This “actor,” we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you’re not around.">
   <meta itemprop="datePublished" content="2025-10-14T00:00:18-06:00">
   <meta itemprop="dateModified" content="2025-10-14T00:00:18-06:00">
-  <meta itemprop="wordCount" content="1100">
+  <meta itemprop="wordCount" content="1096">
   <meta itemprop="keywords" content="Parchment,Devblog,Servers">
 
   <meta name="twitter:card" content="summary">
@@ -147,9 +147,9 @@ When you log into Parchment, if you didn’t already have one, a worker bee spaw
 <p>When you log into Parchment, if you didn&rsquo;t already have one, a worker bee spawns just for you. This &ldquo;actor,&rdquo; we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you&rsquo;re not around.</p>
 <h3 id="persistent-worlds">Persistent worlds</h3>
 <p>Because your actor hangs out after you&rsquo;re gone, your civilization can continue to grow, defend, and make automatic choices as well. It sends its authoritative choices to the queen bee and the world keeps moving on while you sleep. If you have resources that you&rsquo;re gathering, they continue to gather. If you have technologies you&rsquo;re researching, they continue to research. Your own actor keeps time and executes these actions because it has it&rsquo;s own &ldquo;update loop.&rdquo;</p>
-<p>This actor/player bee has it&rsquo;s own internal &ldquo;update loop&rdquo; that I am calling the &ldquo;economy tick.&rdquo; The tick runs at between 0.25hz and 2hz (Once every 4 seconds to twice a second), depending on the need and priority. This tick purposely competes with user input and does not interleave. <em>This means each tick of the economy loop per player is treated like a player input, which in turn means everything is processed in order as it should be.</em></p>
+<p>This internal update loop is something I&rsquo;m calling the economy tick. The tick runs at between 0.25hz and 2hz (Once every 4 seconds to twice a second), depending on the need and priority. This tick purposely competes with user input and does not interleave. <em>This means each tick of the economy loop per player is treated like a player input, which in turn means everything is processed in order as it should be.</em></p>
 <h3 id="okay-yes-they-sometimes-nap">Okay, yes, they sometimes nap</h3>
-<p>On occassion, realms may find that there is very little to do. This can happen when a player hasn&rsquo;t given much input recently, signed in for some time, and/or hasn&rsquo;t had their civilization interacted with by others in some time. <em>To save on server capacity, we &ldquo;park&rdquo; those inactive actors/bees until they are needed again.</em> When they reactivate, we fast-forward them to present day. This includes marking any resources as harvested (and adding them to the player&rsquo;s currency), as well as things like marking their technology researches complete. Ultimately these are all planned to be just math, so it shouldn&rsquo;t be compute heavy and fairly easy. But if needed, we can always burst some compute for the catch up.</p>
+<p>On occassion, realms may find that there is very little to do. This can happen when a player hasn&rsquo;t given much input recently, hasn&rsquo;t signed in for some time, and/or hasn&rsquo;t had their civilization interacted with by others in some time. <em>To save on server capacity, we &ldquo;park&rdquo; those inactive actors/bees until they are needed again.</em> When they reactivate, we fast-forward them to present day. This includes marking any resources as harvested (and adding them to the player&rsquo;s currency), as well as things like marking their technology researches complete. Ultimately these are all planned to be just math, so it shouldn&rsquo;t be compute heavy and fairly easy. But if needed, we can always burst some compute for the catch up.</p>
 <h3 id="resiliency-and-beta-realms">Resiliency and beta-realms</h3>
 <p>When a realm begins, it locks in several things:</p>
 <ul>
@@ -202,7 +202,7 @@ When you log into Parchment, if you didn’t already have one, a worker bee spaw
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1100 Words
+        1096 Words
       </p>
 
       <p>

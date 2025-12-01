@@ -5,8 +5,70 @@
         <description>Recent content in Posts on porschiey&#39;s dev.blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 14 Oct 2025 00:00:18 -0600</lastBuildDate>
+        <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://dev.porschiey.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Parchment DevBlog #1</title>
+            <link>https://dev.porschiey.io/posts/devblog1/</link>
+            <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+            
+            <guid>https://dev.porschiey.io/posts/devblog1/</guid>
+            <description>&lt;p&gt;Hello all! I&amp;rsquo;m considering this the first official project update for Parchment - and there&amp;rsquo;s a lot to update since my last technical blog in October. We&amp;rsquo;ve got some new art to show, team growth to highlight, and some goals to share. I hope to make a monthly post to share the progress made, even if I&amp;rsquo;m sending this out to the void with very little readership. &amp;lt;3&lt;/p&gt;
+&lt;h1 id=&#34;shiny-new-icons&#34;&gt;Shiny new icons&lt;/h1&gt;
+&lt;p&gt;First up, I&amp;rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>Hello all! I&rsquo;m considering this the first official project update for Parchment - and there&rsquo;s a lot to update since my last technical blog in October. We&rsquo;ve got some new art to show, team growth to highlight, and some goals to share. I hope to make a monthly post to share the progress made, even if I&rsquo;m sending this out to the void with very little readership. &lt;3</p>
+<h1 id="shiny-new-icons">Shiny new icons</h1>
+<p>First up, I&rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:</p>
+<p><img src="/images/zevIcons.png" alt=""></p>
+<p>Credit: <a href="https://www.behance.net/zevxavier1">Zev</a></p>
+<p>Breaking down these icons, we see from left to right&hellip;</p>
+<ul>
+<li>Wood: Abundant early game resource for construction</li>
+<li>Food: Abundant Early game resource for units and research</li>
+<li>Stone: Early-Mid game resource for construction</li>
+<li>Gold: Mid-game resource that has wide usage</li>
+<li>Obsidian: Rare late-game resource for special upgrades</li>
+<li>Aether: Rare late-game resource for magical upgrades</li>
+</ul>
+<p>I wonder where in the generated world one can find all of these resources&hellip;</p>
+<h1 id="solo---duo">Solo -&gt; Duo</h1>
+<img src="/images/cheeselogAv.webp" style="float:left; padding-right: 10pt;" />
+<p>Great news! Another developer (and friend) has decided to jump in and help here and there! Meet <strong>Cheeselog</strong>, the second official team member! Although technical in other ways, he is an aspirant when it comes to game development so I&rsquo;ve taken him on as a junior developer in a learning capacity. He&rsquo;s already fixed one bug! Feel free to stop by our <a href="https://discord.gg/hmhgbsUPd5">Discord Server</a> and say hi.</p>
+<p>The team growing from one to 1+ means something significant. We&rsquo;re essentially a non-funded startup, and we&rsquo;ll have to come up with a studio name. Exciting times!</p>
+<h1 id="decembers-goal">December&rsquo;s Goal</h1>
+<p>Our goal for December is to launch a test realm in the cloud. Each realm will have it&rsquo;s own name, similar to that of MMO game servers. This one we&rsquo;re calling <strong><code>Hightower</code></strong> The naming scheme for the Realm will be taken from a Dungeons &amp; Dragons table I am the DM for. In fact, we have officially gotten our hands on a couple of Unity Build machines that we&rsquo;ve named after characters in that DnD table. This test realm won&rsquo;t be very feature rich, but instead places weight on ensuring all the network pieces are operating which is critical. This also means we have to spin up our build pipelines (and the before-mentioned build machines), get things deployed to the cloud, and iron out all the kinks to get us from code-written -&gt; game-playable. I&rsquo;ve added a &ldquo;Technical section&rdquo; below for those who might want to read up on what we&rsquo;ve done so far to accomplish this. The <code>Hightower</code> realm will not be accessible to the general public yet, released on Steam or anything of that nature, but instead internally to trusted friends. Eventually however, we hope for <code>Hightower</code> to be the &ldquo;PTR&rdquo; - Public Test Realm. Perhaps in early Spring of 2026.</p>
+<h2 id="the-technical-bits-deploying-ci-and-more">The Technical Bits, Deploying, CI, and more</h2>
+<p>In my experience, when you&rsquo;re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they&rsquo;ll be simple to handle later.</p>
+<blockquote>
+<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p></blockquote>
+<p>Recently, I decided it was time to pause my feature development and dive into the operations side of house. Continuous Intergration pipelines so that every code check in automatically makes a new build. Deployments to a cloud test environment to begin fleshing out how a real server environment. All that sort of thing. This immediately meant two things:</p>
+<h3 id="1-handling-all-of-my-local-only-implementations">1. Handling all of my &ldquo;local-only&rdquo; implementations</h3>
+<h4 id="saving-generated-map-slices-locally">Saving Generated Map Slices Locally</h4>
+<p>To get things jump started, every time we generated a new slice of the map, that slice was saved locally where the server ran. This immediately becomes an issue when:</p>
+<ul>
+<li>Many hosting platforms don&rsquo;t let you fill up the VM&rsquo;s hard drive (and nor should you, unless you can guarantee to get the same drive with a new VM)</li>
+<li>Many VMs don&rsquo;t have large disks and many hosting solutions lean toward &ldquo;serverless&rdquo;, which is fancy for &ldquo;you can&rsquo;t manage the server underneath&rdquo;</li>
+<li>Other servers don&rsquo;t have the same data and will have to get it themselves somehow.</li>
+</ul>
+<p>This is all not a huge deal for running our game in development mode locally, but in a cloud environment, it&rsquo;s a big deal. So, we converted all this to use Azure Blob Storage. It was an easy swap at the end of the day, since the bits that Get and Save slices are behind interfaces.</p>
+<h4 id="short-running-instances">Short-running instances</h4>
+<p>It&rsquo;s easy to wipe your local storage and start fresh every single time you run the game in development mode locally. A deployed server cluster is far more complicated. Recently I&rsquo;ve introduced shutdown and reset mechanisms that warn players of a realm shutdown, and then gracefully shutdown pieces of the &ldquo;beehive&rdquo; and drain connections from the server. Essentially, I&rsquo;ve introduced <code>Maintence Mode</code> so that we can pause data-streams for Realms while we deploy a new pod of servers, if we want, for example.</p>
+<h3 id="2-handling-all-of-the-scale-out-landmines">2. Handling all of the &ldquo;scale-out&rdquo; landmines</h3>
+<h4 id="orleans-landmine"><strong>Orleans Landmine</strong></h4>
+<p>The beehive/grain structure detailed in other posts needs some special TLC to get working in a real server environment. There are very few offerings from Azure/AWS that are cheap but have limited support for all the special communications needed here. There are of course larger offerings, like Kubernetes, which come with the support for all the special communications, but depending on the region, require at least 2 two nodes at around $60 USD/month. I don&rsquo;t think I want my test environment this early in development to cost $120/month.</p>
+<p>Luckily I was able to settle on some middle ground in Azure, using Azure App Services with special commands that unlock private ports in a Virtual Network. It&rsquo;s not an easy setup, but it&rsquo;s an affordable one that works. Having not read every single letter of the docs, I didn&rsquo;t know this was going to be a problem until I looked at the telemetry coming out of the server cluster:</p>
+<p><img src="/images/orleansErrors.png" alt=""></p>
+<p>Things were working, but I had effectively chopped up my &ldquo;beehive&rdquo; into two hives, as they could not communicate with each other. After researching a bunch and sleeping on it, you can see the next morning a new and improved deployment fixed the issue.</p>
+<h4 id="signalr-landmine">SignalR Landmine</h4>
+<p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/signalr">SignalR</a> is a realtime technology built on WebSockets that we&rsquo;re using to for server&lt;-&gt;client realtime communication. Players will essentially <em>bind</em> their connection to a particular server - that server becomes their broker of information.</p>
+<blockquote>
+<p>&ldquo;However, when you [add servers&hellip;], clients can get routed to different ones. A client that is connected to one server will not receive messages sent from another server.&rdquo;</p>
+<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p></blockquote>
+<p>This can be a bad thing, especially if you&rsquo;re going for a more stateless approach (any server should be able to help you). If one server knows all your details and the others do not, you could get bad data talking to the wrong one. However, with the Beehive (Orleans), this actually is not a problem. Regardless of whatever server your bind to, your comms will be sent to the server that has <em>your</em> worker bee. This allows us to be stateful without needing a backplane for data understanding.</p>
+<p>So for now, this landmine remains one we haven&rsquo;t stepped on. However, as the game potentially scales out further, we may have to look at <a href="https://learn.microsoft.com/en-us/azure/azure-signalr/signalr-overview">SignalR Service</a>, which can handle thousands of connections at once and not bog down the connections to the primary servers.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Building a world that never sleeps (part 2)</title>

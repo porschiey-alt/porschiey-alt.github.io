@@ -6,21 +6,21 @@
     <description>Recent content in Devblog on porschiey&#39;s dev.blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Oct 2025 00:00:18 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dev.porschiey.io/tags/devblog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parchment DevBlog #1</title>
+      <link>https://dev.porschiey.io/posts/devblog1/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://dev.porschiey.io/posts/devblog1/</guid>
+      <description>&lt;p&gt;Hello all! I&amp;rsquo;m considering this the first official project update for Parchment - and there&amp;rsquo;s a lot to update since my last technical blog in October. We&amp;rsquo;ve got some new art to show, team growth to highlight, and some goals to share. I hope to make a monthly post to share the progress made, even if I&amp;rsquo;m sending this out to the void with very little readership. &amp;lt;3&lt;/p&gt;&#xA;&lt;h1 id=&#34;shiny-new-icons&#34;&gt;Shiny new icons&lt;/h1&gt;&#xA;&lt;p&gt;First up, I&amp;rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building a world that never sleeps (part 2)</title>
       <link>https://dev.porschiey.io/posts/building-world-never-sleeps-2/</link>
       <pubDate>Tue, 14 Oct 2025 00:00:18 -0600</pubDate>
       <guid>https://dev.porschiey.io/posts/building-world-never-sleeps-2/</guid>
       <description>&lt;p&gt;We last left off in &lt;a href=&#34;https://dev.porschiey.io/posts/building-world-never-sleeps/&#34;&gt;part 1&lt;/a&gt; talking about how chatty multiplayer dedicated servers can be, and how we&amp;rsquo;ve got this &amp;ldquo;hive&amp;rdquo; system that powers and scales out the realms without being so chatty. But we never got to the no-sleep part, did we?&lt;/p&gt;&#xA;&lt;p&gt;When you log into Parchment, if you didn&amp;rsquo;t already have one, a worker bee spawns just for you. This &amp;ldquo;actor,&amp;rdquo; we will call it from here on out, persists after you sign out and helps answer questions about your civilization/empire/base when you&amp;rsquo;re not around.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Building a world that never sleeps</title>
-      <link>https://dev.porschiey.io/posts/building-world-never-sleeps/</link>
-      <pubDate>Sat, 11 Oct 2025 08:22:27 -0600</pubDate>
-      <guid>https://dev.porschiey.io/posts/building-world-never-sleeps/</guid>
-      <description>&lt;p&gt;&lt;del&gt;Keep it simple for your first game&lt;/del&gt;. For quite some time I&amp;rsquo;ve been pondering a new multiplayer server technology and netcode architecture. After spending 15+ years in the gaming industry I know this is no small task - there&amp;rsquo;s a graveyard of game studios and aspirational game devs alike who have tried and failed to write good netcode. In fact, I was at a &lt;a href=&#34;https://starform.co&#34;&gt;startup&lt;/a&gt; that was plagued with network issues that they spent loads of money and manpower (myself included) to figure it out.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hightower on porschiey&#39;s dev.blog</title>
+    <link>https://dev.porschiey.io/tags/hightower/</link>
+    <description>Recent content in Hightower on porschiey&#39;s dev.blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dev.porschiey.io/tags/hightower/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parchment DevBlog #1</title>
+      <link>https://dev.porschiey.io/posts/devblog1/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://dev.porschiey.io/posts/devblog1/</guid>
+      <description>&lt;p&gt;Hello all! I&amp;rsquo;m considering this the first official project update for Parchment - and there&amp;rsquo;s a lot to update since my last technical blog in October. We&amp;rsquo;ve got some new art to show, team growth to highlight, and some goals to share. I hope to make a monthly post to share the progress made, even if I&amp;rsquo;m sending this out to the void with very little readership. &amp;lt;3&lt;/p&gt;&#xA;&lt;h1 id=&#34;shiny-new-icons&#34;&gt;Shiny new icons&lt;/h1&gt;&#xA;&lt;p&gt;First up, I&amp;rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

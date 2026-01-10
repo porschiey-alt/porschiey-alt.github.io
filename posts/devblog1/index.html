@@ -167,7 +167,8 @@ Shiny new icons First up, I’ve hired an artist to do some freelance work for t
 <h2 id="the-technical-bits-deploying-ci-and-more">The Technical Bits, Deploying, CI, and more</h2>
 <p>In my experience, when you&rsquo;re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they&rsquo;ll be simple to handle later.</p>
 <blockquote>
-<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p></blockquote>
+<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p>
+</blockquote>
 <p>Recently, I decided it was time to pause my feature development and dive into the operations side of house. Continuous Intergration pipelines so that every code check in automatically makes a new build. Deployments to a cloud test environment to begin fleshing out how a real server environment. All that sort of thing. This immediately meant two things:</p>
 <h3 id="1-handling-all-of-my-local-only-implementations">1. Handling all of my &ldquo;local-only&rdquo; implementations</h3>
 <h4 id="saving-generated-map-slices-locally">Saving Generated Map Slices Locally</h4>
@@ -190,7 +191,8 @@ Shiny new icons First up, I’ve hired an artist to do some freelance work for t
 <p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/signalr">SignalR</a> is a realtime technology built on WebSockets that we&rsquo;re using to for server&lt;-&gt;client realtime communication. Players will essentially <em>bind</em> their connection to a particular server - that server becomes their broker of information.</p>
 <blockquote>
 <p>&ldquo;However, when you [add servers&hellip;], clients can get routed to different ones. A client that is connected to one server will not receive messages sent from another server.&rdquo;</p>
-<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p></blockquote>
+<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p>
+</blockquote>
 <p>This can be a bad thing, especially if you&rsquo;re going for a more stateless approach (any server should be able to help you). If one server knows all your details and the others do not, you could get bad data talking to the wrong one. However, with the Beehive (Orleans), this actually is not a problem. Regardless of whatever server your bind to, your comms will be sent to the server that has <em>your</em> worker bee. This allows us to be stateful without needing a backplane for data understanding.</p>
 <p>So for now, this landmine remains one we haven&rsquo;t stepped on. However, as the game potentially scales out further, we may have to look at <a href="https://learn.microsoft.com/en-us/azure/azure-signalr/signalr-overview">SignalR Service</a>, which can handle thousands of connections at once and not bog down the connections to the primary servers.</p>
 
@@ -245,6 +247,13 @@ Shiny new icons First up, I’ve hired an artist to do some freelance work for t
         
 
         <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://dev.porschiey.io/posts/devblog2/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Parchment DevBlog #2</span>
+                </a>
+            </span>
             
 
             

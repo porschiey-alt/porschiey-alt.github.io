@@ -171,7 +171,8 @@ When you log into Parchment, if you didn’t already have one, a worker bee spaw
 <p>Parchment&rsquo;s server design takes that even further. We split up the work down to each individual player, and spread it across the entire fleet of servers. Our &ldquo;dedicated server&rdquo; is not a single executable we throw onto a host VM that dies when a simulation ends. Our dedicated server is a series of logical and virtual nodes that exist across the entire fleet of cloud machines. Your realm might be ticking away in California while your worker bee/actor is ticking away in Texas and your rival is ticking away in Virginia. Queue the movie-esque globe network topology with nodes below.</p>
 <p><img src="/images/worldNodes.png" alt=""></p>
 <blockquote>
-<p><em>Imagine if those nodes weren&rsquo;t dedicated servers&hellip; but instead&hellip; that entire picture is the dedicated server.</em></p></blockquote>
+<p><em>Imagine if those nodes weren&rsquo;t dedicated servers&hellip; but instead&hellip; that entire picture is the dedicated server.</em></p>
+</blockquote>
 <p>Because the code is also written with high performance in mind (reduced backpressure, bulkhead partitioning, virtual circuit breakers, enforced timeouts, exponential backoff retry policies, negative caching, etc&hellip;) we can safely scale our fleet of servers with how busy the server is and everything else automatically expands. With less network I/O, we can host more realms on one &ldquo;box&rdquo; or machine, and therefore more players on that machine.</p>
 <h3 id="okbye">okbye</h3>
 <p>There&rsquo;s a lot of items I didn&rsquo;t cover - including gotchas and pitfalls for this approach, but for now that will conclude talking about the network/server design. Perhaps all of it could have been summarized into: &ldquo;My dedicated server is a hipster,&rdquo; or something. Oh well. ¯_(ツ)_/¯</p>

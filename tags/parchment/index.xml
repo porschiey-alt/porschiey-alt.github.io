@@ -6,8 +6,15 @@
     <description>Recent content in Parchment on porschiey&#39;s dev.blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dev.porschiey.io/tags/parchment/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parchment DevBlog #2</title>
+      <link>https://dev.porschiey.io/posts/devblog2/</link>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://dev.porschiey.io/posts/devblog2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://dev.porschiey.io/images/combatExample.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Over the holidays we spent quite a lot of our free time &lt;del&gt;playing Dungeons &amp;amp; Dragons&lt;/del&gt; working on Parchment, and we&amp;rsquo;ve officially got a build that friends and family can play! If you&amp;rsquo;d like access, feel free to stop by our &lt;a href=&#34;https://discord.gg/hmhgbsUPd5&#34;&gt;Discord Server&lt;/a&gt; and say hi. Be warned, the alpha is rough around the edges and has it&amp;rsquo;s share of bugs - but that&amp;rsquo;s what it is for. This update will detail the features in the alpha and the work we accomplished to get there.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Parchment DevBlog #1</title>
       <link>https://dev.porschiey.io/posts/devblog1/</link>

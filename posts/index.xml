@@ -5,8 +5,53 @@
         <description>Recent content in Posts on porschiey&#39;s dev.blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://dev.porschiey.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Parchment DevBlog #2</title>
+            <link>https://dev.porschiey.io/posts/devblog2/</link>
+            <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://dev.porschiey.io/posts/devblog2/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://dev.porschiey.io/images/combatExample.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Over the holidays we spent quite a lot of our free time &lt;del&gt;playing Dungeons &amp;amp; Dragons&lt;/del&gt; working on Parchment, and we&amp;rsquo;ve officially got a build that friends and family can play! If you&amp;rsquo;d like access, feel free to stop by our &lt;a href=&#34;https://discord.gg/hmhgbsUPd5&#34;&gt;Discord Server&lt;/a&gt; and say hi. Be warned, the alpha is rough around the edges and has it&amp;rsquo;s share of bugs - but that&amp;rsquo;s what it is for. This update will detail the features in the alpha and the work we accomplished to get there.&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p><img src="/images/combatExample.gif" alt=""></p>
+<p>Over the holidays we spent quite a lot of our free time <del>playing Dungeons &amp; Dragons</del> working on Parchment, and we&rsquo;ve officially got a build that friends and family can play! If you&rsquo;d like access, feel free to stop by our <a href="https://discord.gg/hmhgbsUPd5">Discord Server</a> and say hi. Be warned, the alpha is rough around the edges and has it&rsquo;s share of bugs - but that&rsquo;s what it is for. This update will detail the features in the alpha and the work we accomplished to get there.</p>
+<h2 id="battles">BATTLES!</h2>
+<p>We&rsquo;ve refactored our combat system (or rather, actually created it) such that it is no longer the standard RTS &ldquo;unit attacks other unit on the screen&rdquo;, but instead it will feel a bit more like what you&rsquo;d see in Stellaris, where a battle takes place that produces artifacts. In our case, it&rsquo;s loot! (See the LOOT! section). This battle system will be one of the primary fun mechanisms in the game, so we&rsquo;re spending a lot of time on it. It&rsquo;s still quite rough around the edges, and there&rsquo;s certainly a lot of work left before we release a demo, but here&rsquo;s a sneak peak of the different battle states you can get into:</p>
+<p><img src="/images/battleIconsWatermarked.png" alt=""></p>
+<h2 id="loot">LOOT!</h2>
+<p>After a battle completes, both the victor and the loser(s) can view the results, and collect some items. The victor will receive a majority of the loot - typically gold, food, and other supplies depending on what they&rsquo;ve attacked. The loser(s) will be able to recover a little bit of what they had left. In the coming weeks, when we add the full functionality to attack buildings, you&rsquo;ll be able to raid cities and get grander prizes. Be warned though, the farther away you are from your own territory, the more costly things will get.</p>
+<p>Right now, the best way to get gold in the game is to battle other players - at least until we add the gold mine!</p>
+<h2 id="mountains-well-lines">Mountains. Well, lines.</h2>
+<p>We&rsquo;ve made some huge code progress and minor visual progress on the drawing of mountains. One will notice as they enter the game, mountain ridges starting to be drawn onto the map. This is the beginning of a new mountain driver that will hopefully draw beautiful mountains onto your map. After they&rsquo;re in place, it will be tougher for your units to go through the mountains (slower speed) - and we&rsquo;ll do something similar for water.</p>
+<h4 id="getting-technical">Getting technical&hellip;</h4>
+<p>The new mountain driver is quite exciting. For those technical, here&rsquo;s essentially how it works.</p>
+<ol>
+<li>Import a height map of the terrain from the server.</li>
+<li>Run a custom built &ldquo;peak finder&rdquo; algorithm that finds all the tallest peaks in the mountain range from the height map.</li>
+<li>Curate those peaks so that they seem legitimate.</li>
+<li>Draw connections between peaks that are close enough to each other, to create potential ridges.</li>
+<li>Draw mountain ridge lines with jitter (pre-baked seed so everyone sees the same)</li>
+</ol>
+<p>In the end, it&rsquo;s a TON of math, as you can imagine, and a bit brutal to test, but here&rsquo;s what it looks like inside Unity - we&rsquo;ve added some &ldquo;Gizmos&rdquo; to draw the connection lines for ridges:</p>
+<p><img src="/images/mountainGizmos.png" alt=""></p>
+<p>Next, we&rsquo;ll draw the rest of the mountain lines that spawn from those ridges, so stay tuned!</p>
+<h2 id="bots-make-the-world-feel-alive">Bots make the world feel alive</h2>
+<p>We&rsquo;ve added some &ldquo;starter bots&rdquo; to the game, managed by the realm. Right now they don&rsquo;t attack - just spawn a few units and do lots of research. Soon though, we&rsquo;ll be adding some bot profiles:</p>
+<ul>
+<li>Peaceful - These won&rsquo;t attack you, making them easy raid targets.</li>
+<li>Easy - Likely nearby, might send a scout or two over to take you on.</li>
+<li>Average - On the outskirts of your spawn. They&rsquo;ll be sure to want to take your territory.</li>
+<li>Tough - On the frontier. These will not give up their land easily, and will strike back with power once you discover them.</li>
+<li>Brutal - These are meant to play like players. They will expand and try to conquer everything they see.</li>
+</ul>
+<p>Right now, all the bots are essentially on Peaceful, and we spawn about 8-10 bots per real player connected to the realm.</p>
+<h4 id="thats-all-for-now">That&rsquo;s all for now</h4>
+<p>We&rsquo;ll make another progress update next month!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Parchment DevBlog #1</title>
@@ -41,7 +86,8 @@
 <h2 id="the-technical-bits-deploying-ci-and-more">The Technical Bits, Deploying, CI, and more</h2>
 <p>In my experience, when you&rsquo;re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they&rsquo;ll be simple to handle later.</p>
 <blockquote>
-<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p></blockquote>
+<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p>
+</blockquote>
 <p>Recently, I decided it was time to pause my feature development and dive into the operations side of house. Continuous Intergration pipelines so that every code check in automatically makes a new build. Deployments to a cloud test environment to begin fleshing out how a real server environment. All that sort of thing. This immediately meant two things:</p>
 <h3 id="1-handling-all-of-my-local-only-implementations">1. Handling all of my &ldquo;local-only&rdquo; implementations</h3>
 <h4 id="saving-generated-map-slices-locally">Saving Generated Map Slices Locally</h4>
@@ -64,7 +110,8 @@
 <p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/signalr">SignalR</a> is a realtime technology built on WebSockets that we&rsquo;re using to for server&lt;-&gt;client realtime communication. Players will essentially <em>bind</em> their connection to a particular server - that server becomes their broker of information.</p>
 <blockquote>
 <p>&ldquo;However, when you [add servers&hellip;], clients can get routed to different ones. A client that is connected to one server will not receive messages sent from another server.&rdquo;</p>
-<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p></blockquote>
+<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p>
+</blockquote>
 <p>This can be a bad thing, especially if you&rsquo;re going for a more stateless approach (any server should be able to help you). If one server knows all your details and the others do not, you could get bad data talking to the wrong one. However, with the Beehive (Orleans), this actually is not a problem. Regardless of whatever server your bind to, your comms will be sent to the server that has <em>your</em> worker bee. This allows us to be stateful without needing a backplane for data understanding.</p>
 <p>So for now, this landmine remains one we haven&rsquo;t stepped on. However, as the game potentially scales out further, we may have to look at <a href="https://learn.microsoft.com/en-us/azure/azure-signalr/signalr-overview">SignalR Service</a>, which can handle thousands of connections at once and not bog down the connections to the primary servers.</p>
 ]]></content>
@@ -106,7 +153,8 @@
 <p>Parchment&rsquo;s server design takes that even further. We split up the work down to each individual player, and spread it across the entire fleet of servers. Our &ldquo;dedicated server&rdquo; is not a single executable we throw onto a host VM that dies when a simulation ends. Our dedicated server is a series of logical and virtual nodes that exist across the entire fleet of cloud machines. Your realm might be ticking away in California while your worker bee/actor is ticking away in Texas and your rival is ticking away in Virginia. Queue the movie-esque globe network topology with nodes below.</p>
 <p><img src="/images/worldNodes.png" alt=""></p>
 <blockquote>
-<p><em>Imagine if those nodes weren&rsquo;t dedicated servers&hellip; but instead&hellip; that entire picture is the dedicated server.</em></p></blockquote>
+<p><em>Imagine if those nodes weren&rsquo;t dedicated servers&hellip; but instead&hellip; that entire picture is the dedicated server.</em></p>
+</blockquote>
 <p>Because the code is also written with high performance in mind (reduced backpressure, bulkhead partitioning, virtual circuit breakers, enforced timeouts, exponential backoff retry policies, negative caching, etc&hellip;) we can safely scale our fleet of servers with how busy the server is and everything else automatically expands. With less network I/O, we can host more realms on one &ldquo;box&rdquo; or machine, and therefore more players on that machine.</p>
 <h3 id="okbye">okbye</h3>
 <p>There&rsquo;s a lot of items I didn&rsquo;t cover - including gotchas and pitfalls for this approach, but for now that will conclude talking about the network/server design. Perhaps all of it could have been summarized into: &ldquo;My dedicated server is a hipster,&rdquo; or something. Oh well. ¯_(ツ)_/¯</p>

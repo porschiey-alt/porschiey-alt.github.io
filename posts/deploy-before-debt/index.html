@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="I&rsquo;m considering this the first official project update for Parchment - and there&rsquo;s a lot to update since October. First, I&rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:
+Credit: Zev
+From left to right, we see:
+Wood: Abundant early game resource for construction Food: Abundant Early game resource for units and research Stone: Early-Mid game resource for construction Gold: Mid-game resource that has wide usage Obsidian: Rare late-game resource for special upgrades Aether: Rare late-game resource for magical upgrades The Technical Bits, Deploying, CI, and more In my experience, when you&rsquo;re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they&rsquo;ll be simple to handle later.
+" />
+<meta name="keywords" content=", devblog, parchment, hightower" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="http://localhost:1313/posts/deploy-before-debt/" />
+
+
+    <title>
+        
+            Parchment: First Devblog :: porschiey&#39;s dev.blog 
+        
+    </title>
+
+
+
+
+
+  <link rel="stylesheet" href="/main.min.2729760c629597024c5de34b40ea9f372f2b5a2a192dcdca537b7ddfa483eab8.css" integrity="sha256-Jyl2DGKVlwJMXeNLQOqfNy8rWioZLc3KU3t936SD6rg=" crossorigin="anonymous">
+
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="Parchment: First Devblog">
+  <meta itemprop="description" content="I’m considering this the first official project update for Parchment - and there’s a lot to update since October. First, I’ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:
+Credit: Zev
+From left to right, we see:
+Wood: Abundant early game resource for construction Food: Abundant Early game resource for units and research Stone: Early-Mid game resource for construction Gold: Mid-game resource that has wide usage Obsidian: Rare late-game resource for special upgrades Aether: Rare late-game resource for magical upgrades The Technical Bits, Deploying, CI, and more In my experience, when you’re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they’ll be simple to handle later.">
+  <meta itemprop="datePublished" content="2025-11-30T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-30T00:00:00+00:00">
+  <meta itemprop="wordCount" content="911">
+  <meta itemprop="keywords" content="Devblog,Parchment,Hightower">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Parchment: First Devblog">
+  <meta name="twitter:description" content="I’m considering this the first official project update for Parchment - and there’s a lot to update since October. First, I’ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:
+Credit: Zev
+From left to right, we see:
+Wood: Abundant early game resource for construction Food: Abundant Early game resource for units and research Stone: Early-Mid game resource for construction Gold: Mid-game resource that has wide usage Obsidian: Rare late-game resource for special upgrades Aether: Rare late-game resource for magical upgrades The Technical Bits, Deploying, CI, and more In my experience, when you’re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they’ll be simple to handle later.">
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2025-11-30 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text ">
+                porschiey</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#00ff00;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/pages/about">About</a></li><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="http://localhost:1313/posts/deploy-before-debt/">Parchment: First Devblog</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <p>I&rsquo;m considering this the first official project update for Parchment - and there&rsquo;s a lot to update since October. First, I&rsquo;ve hired an artist to do some freelance work for the game, starting with our resource icons in the game:</p>
+<p><img src="/images/zevIcons.png" alt=""></p>
+<p>Credit: <a href="https://www.behance.net/zevxavier1">Zev</a></p>
+<p>From left to right, we see:</p>
+<ul>
+<li>Wood: Abundant early game resource for construction</li>
+<li>Food: Abundant Early game resource for units and research</li>
+<li>Stone: Early-Mid game resource for construction</li>
+<li>Gold: Mid-game resource that has wide usage</li>
+<li>Obsidian: Rare late-game resource for special upgrades</li>
+<li>Aether: Rare late-game resource for magical upgrades</li>
+</ul>
+<h1 id="the-technical-bits-deploying-ci-and-more">The Technical Bits, Deploying, CI, and more</h1>
+<p>In my experience, when you&rsquo;re building out a server/client system from scratch - the longer you wait to actually decouple them from the local machine and deploy the service to connect to a stand-alone client, the more technical debt you acquire. Some of it is unknown to you, but either way one shoves it aside as if they&rsquo;ll be simple to handle later.</p>
+<blockquote>
+<p>I need an additional datastore for this? That&rsquo;s fine, the local database emulator can handle it. I need to save files in the cloud? I&rsquo;ll save them locally for now.</p></blockquote>
+<p>Recently, I decided it was time to pause my feature development and dive into the operations side of house. Continuous Intergration pipelines so that every code check in automatically makes a new build. Deployments to a cloud test environment to begin fleshing out how a real server environment. All that sort of thing. This immediately meant two things:</p>
+<h2 id="1-handling-all-of-my-local-only-implementations">1. Handling all of my &ldquo;local-only&rdquo; implementations</h2>
+<h3 id="saving-generated-map-slices-locally">Saving Generated Map Slices Locally</h3>
+<p>To get things jump started, every time we generated a new slice of the map, that slice was saved locally where the server ran. This immediately becomes an issue when:</p>
+<ul>
+<li>Many hosting platforms don&rsquo;t let you fill up the VM&rsquo;s hard drive (and nor should you, unless you can guarantee to get the same drive with a new VM)</li>
+<li>Many VMs don&rsquo;t have large disks and many hosting solutions lean toward &ldquo;serverless&rdquo;, which is fancy for &ldquo;you can&rsquo;t manage the server underneath&rdquo;</li>
+<li>Other servers don&rsquo;t have the same data and will have to get it themselves somehow.</li>
+</ul>
+<p>This is all not a huge deal for running our game in development mode locally, but in a cloud environment, it&rsquo;s a big deal. So, we converted all this to use Azure Blob Storage. It was an easy swap at the end of the day, since the bits that Get and Save slices are behind interfaces.</p>
+<h3 id="short-running-instances">Short-running instances</h3>
+<p>It&rsquo;s easy to wipe your local storage and start fresh every single time you run the game in development mode locally. A deployed server cluster is far more complicated. Recently I&rsquo;ve introduced shutdown and reset mechanisms that warn players of a realm shutdown, and then gracefully shutdown pieces of the &ldquo;beehive&rdquo; and drain connections from the server. Essentially, I&rsquo;ve introduced <code>Maintence Mode</code> so that we can pause data-streams for Realms while we deploy a new pod of servers, if we want, for example.</p>
+<h2 id="2-handling-all-of-the-scale-out-landmines">2. Handling all of the &ldquo;scale-out&rdquo; landmines</h2>
+<h3 id="orleans-landmine"><strong>Orleans Landmine</strong></h3>
+<p>The beehive/grain structure detailed in other posts needs some special TLC to get working in a real server environment. There are very few offerings from Azure/AWS that are cheap but have limited support for all the special communications needed here. There are of course larger offerings, like Kubernetes, which come with the support for all the special communications, but depending on the region, require at least 2 two nodes at around $60 USD/month. I don&rsquo;t think I want my test environment this early in development to cost $120/month.</p>
+<p>Luckily I was able to settle on some middle ground in Azure, using Azure App Services with special commands that unlock private ports in a Virtual Network. It&rsquo;s not an easy setup, but it&rsquo;s an affordable one that works. Having not read every single letter of the docs, I didn&rsquo;t know this was going to be a problem until I looked at the telemetry coming out of the server cluster:</p>
+<p><img src="/images/orleansErrors.png" alt=""></p>
+<p>Things were working, but I had effectively chopped up my &ldquo;beehive&rdquo; into two hives, as they could not communicate with each other. After researching a bunch and sleeping on it, you can see the next morning a new and improved deployment fixed the issue.</p>
+<h3 id="signalr-landmine">SignalR Landmine</h3>
+<p><a href="https://dotnet.microsoft.com/en-us/apps/aspnet/signalr">SignalR</a> is a realtime technology built on WebSockets that we&rsquo;re using to for server&lt;-&gt;client realtime communication. Players will essentially <em>bind</em> their connection to a particular server - that server becomes their broker of information.</p>
+<blockquote>
+<p>&ldquo;However, when you [add servers&hellip;], clients can get routed to different ones. A client that is connected to one server will not receive messages sent from another server.&rdquo;</p>
+<p>-<a href="https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr">Scaleout in SignalR</a></p></blockquote>
+<p>This can be a bad thing, especially if you&rsquo;re going for a more stateless approach (any server should be able to help you). If one server knows all your details and the others do not, you could get bad data talking to the wrong one. However, with the Beehive (Orleans), this actually is not a problem. Regardless of whatever server your bind to, your comms will be sent to the server that has <em>your</em> worker bee. This allows us to be stateful without needing a backplane for data understanding.</p>
+<p>So for now, this landmine remains one we haven&rsquo;t stepped on. However, as the game potentially scales out further, we may have to look at <a href="https://learn.microsoft.com/en-us/azure/azure-signalr/signalr-overview">SignalR Service</a>, which can handle thousands of connections at once and not bog down the connections to the primary servers.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/tags/devblog/">devblog</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/parchment/">parchment</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/hightower/">hightower</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        911 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2025-11-29 17:00
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        
+
+        <div class="pagination__buttons">
+            
+
+            
+            <span class="button next">
+                <a href="http://localhost:1313/posts/building-world-never-sleeps-2/">
+                    <span class="button__text">Building a world that never sleeps (part 2)</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.ad54ad97364f77ede35def9096b162bb1f0b3973aa50b080f5e82fa147f6882e2a7200d7535adbf9b51bebf939f1c1ca9bbe6be87530092aca720eac4a226fda.js" integrity="sha512-rVStlzZPd&#43;3jXe&#43;QlrFiux8LOXOqULCA9egvoUf2iC4qcgDXU1rb&#43;bUb6/k58cHKm75r6HUwCSrKcg6sSiJv2g=="></script>
+
+
+
+
+    </body>
+</html>

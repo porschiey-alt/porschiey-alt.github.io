@@ -6,8 +6,15 @@
     <description>Recent content in Devblog on porschiey&#39;s dev.blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dev.porschiey.io/tags/devblog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevBlog 3: Mountains, trees, pathfinding &amp; more</title>
+      <link>https://dev.porschiey.io/posts/devblog3/</link>
+      <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://dev.porschiey.io/posts/devblog3/</guid>
+      <description>&lt;p&gt;Hello! January flew by&amp;hellip; and what with my actual job picking back up, my velocity on Parchment slowed down a bit. Nevertheless, I have plenty to talk about! &lt;strong&gt;The first is that I am headed off to GDC 2026 this year, in SF, California.&lt;/strong&gt; If you&amp;rsquo;re going to be at GDC, shoot me a message so we can connect! You can find my socials on the blog here or you can join our discord server and find me there. But let&amp;rsquo;s get into a game update. First up, mountains have gotten better!&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Parchment DevBlog #2</title>
       <link>https://dev.porschiey.io/posts/devblog2/</link>

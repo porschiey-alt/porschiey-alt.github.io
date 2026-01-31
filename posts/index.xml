@@ -5,8 +5,53 @@
         <description>Recent content in Posts on porschiey&#39;s dev.blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Sat, 31 Jan 2026 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://dev.porschiey.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>DevBlog 3: Mountains, trees, pathfinding &amp; more</title>
+            <link>https://dev.porschiey.io/posts/devblog3/</link>
+            <pubDate>Sat, 31 Jan 2026 00:00:00 +0000</pubDate>
+            
+            <guid>https://dev.porschiey.io/posts/devblog3/</guid>
+            <description>&lt;p&gt;Hello! January flew by&amp;hellip; and what with my actual job picking back up, my velocity on Parchment slowed down a bit. Nevertheless, I have plenty to talk about! &lt;strong&gt;The first is that I am headed off to GDC 2026 this year, in SF, California.&lt;/strong&gt; If you&amp;rsquo;re going to be at GDC, shoot me a message so we can connect! You can find my socials on the blog here or you can join our discord server and find me there. But let&amp;rsquo;s get into a game update. First up, mountains have gotten better!&lt;/p&gt;</description>
+            <content type="html"><![CDATA[<p>Hello! January flew by&hellip; and what with my actual job picking back up, my velocity on Parchment slowed down a bit. Nevertheless, I have plenty to talk about! <strong>The first is that I am headed off to GDC 2026 this year, in SF, California.</strong> If you&rsquo;re going to be at GDC, shoot me a message so we can connect! You can find my socials on the blog here or you can join our discord server and find me there. But let&rsquo;s get into a game update. First up, mountains have gotten better!</p>
+<h2 id="beauty-corner-mountains">Beauty corner: Mountains</h2>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/P52DtlRfxls?autoplay=1&amp;controls=0&amp;end=0&amp;loop=1&amp;mute=1&amp;playlist=P52DtlRfxls&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>I spent a majority of my time this month on mountains, and I hope the work is showing! I&rsquo;m quite pleased with the progress, given I&rsquo;m not an artist <em>at all</em>. That being said, they are far from perfect and I have spent way too many days just sitting at my desk trying to fine tune them for little gain. So for now, I&rsquo;m moving on and I will likely come back around to work on them later.</p>
+<h2 id="beauty-corner-trees">Beauty corner: Trees</h2>
+<p>Since mountains got some love, I decided it was time for the trees to get an upgrade as well. They now have a richer green color, they have variety baked in, and if you look closely, they have a slight wind effect to give them life. <em><strong>Check out the clip below - can you see them wiggle?</strong></em></p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SApRVVUyDCk?autoplay=1&amp;controls=0&amp;end=0&amp;loop=1&amp;mute=1&amp;playlist=SApRVVUyDCk&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<h2 id="report-server-tech-playtest">Report: Server tech playtest</h2>
+<p>In January we released a build to friends and family to validate the initial network technology. We launched a realm called <code>Hightower</code> and let players sign and mess around. Although attendance was low (&lt;10), no one reported any server or network issues. This is a massive win for me, given all the heavy work put into the server tech ahead of time. (See <a href="posts/building-world-never-sleeps/">Building a world that never sleeps</a>). Naturally, a low amount of connected clients at sporadic times hardly tests and validates the entire stack. For that we&rsquo;ll need hundreds more and plenty of &ldquo;soak time&rdquo;. But it is a win nonetheless to see brand new tech not fall over when the first computer that isn&rsquo;t mine connect to it. It was even more satisfying to have a massive battle against my co-developer&hellip; and have him obliterate me.</p>
+<h2 id="unit-pathing">Unit Pathing</h2>
+<p>Pathfinding v1 has been added to the game! This might not seem like much, and perhaps a rather trivial addition, but it is more complicated than that, unfortunately. Most game developers are likely to use Unity&rsquo;s built in Navmesh and navigation - where you bake in the terrain, specify game objects that are obstacles, and let Unity do the hard work for you.</p>
+<p><strong>We don&rsquo;t have that luxury.</strong> Why? Well, two primary reasons:</p>
+<ol>
+<li>The map is procedurally generated on demand, so we cannot pre-bake the navigation.</li>
+<li>Our server tech tells the client its path, not the other way around. The server must make this calculation. But our server is not a headless unity executable running the game as a dedicated server. We have a completely different netstack.</li>
+</ol>
+<p>This means the server that runs the entire realm must also calculate the pathfinding. Luckily, it&rsquo;s set up for just a scenario. The player&rsquo;s own &ldquo;worker bee&rdquo; (again see previous blogs) calculates the path and sends the result to the &ldquo;queen bee&rdquo; that runs the realm to minimize disruption and compute.</p>
+<p><img src="/images/unitPathing.png" alt=""></p>
+<p>There are still some limitations we&rsquo;ll work through - such as traveling over super long distances, but I&rsquo;m quite pleased with v1.</p>
+<h2 id="for-february">For February</h2>
+<p>Our working plans for February are as follows:</p>
+<ul>
+<li>Continue to improve the look and feel of the game, adding and fine tuning the art pieces and smoothing out rough edges.</li>
+<li>Improve city/base expansion experience. More buildings you construct will appear outside the center city unit.</li>
+<li>Improve combat display. Combat panel display bugs will be sorted and multiple visual improvements will be added.</li>
+<li>Create stacking logic. Units can no longer stack unless certain conditions are met, and travel in and arrive in formation.</li>
+<li>Finalize our starting capsule art.</li>
+</ul>
+<p>See you in a month!</p>
+]]></content>
+        </item>
         
         <item>
             <title>Parchment DevBlog #2</title>
